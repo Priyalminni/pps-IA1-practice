@@ -41,7 +41,8 @@ void output(int n, Complex c[n], Complex result){
     }
   }
 }
-int main(){
+int main()
+{
   int n;
   n = get_n();
   Complex c[n],result;

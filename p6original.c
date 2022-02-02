@@ -3,7 +3,7 @@
 void input_two_string(char *a, char *b)
 {
   printf("Enter the strings\n");
-  scanf("%s%s", a, b);
+  scanf("%s%s",  a,  b);
 }
 
 int strcmp(char *a, char *b)
@@ -24,7 +24,6 @@ int strcmp(char *a, char *b)
     }
   }
 }
-
 void output(char *a, char *b, int result)
 {
   if(result==1)
@@ -37,7 +36,7 @@ void output(char *a, char *b, int result)
 
 int main()
 {
-  char a[100],b[100];
+  char a[100] , b[100];
   input_two_string(a, b);
   int result=strcmp(a, b);
   output(a, b, result);
