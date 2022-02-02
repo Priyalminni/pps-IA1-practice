@@ -1,0 +1,87 @@
+Reading symbols from a.out...
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:35
+35        n = input_array_size ();
+(gdb) step
+input_array_size () at main.c:4
+4       {
+(gdb) next
+6         printf ("Enter array size\n");
+(gdb) next
+Enter array size
+7         scanf ("%d", &n);
+(gdb) next
+2
+8         return n;
+(gdb) next
+9       }
+(gdb) next
+main () at main.c:36
+36        int a[n];
+(gdb) step
+37        input_array (n, a);
+(gdb) step
+input_array (n=32767, a=0x5555555550c0 <_start>) at main.c:12
+12      {
+(gdb) next
+14        printf ("Enter the %d elements array \n", n);
+(gdb) next
+Enter the 2 elements array 
+15        for (i = 0; i < n; i++)
+(gdb) next
+16          scanf ("%d", &a[i]);
+(gdb) next
+2
+15        for (i = 0; i < n; i++)
+(gdb) next
+16          scanf ("%d", &a[i]);
+(gdb) next
+2
+15        for (i = 0; i < n; i++)
+(gdb) next
+17      }
+(gdb) next
+main () at main.c:38
+38        sum = sum_n_arrays (n, a);
+(gdb) step
+sum_n_arrays (n=2, a=0x7fffffffeb80) at main.c:19
+19      {
+(gdb) next
+20        int i, sum = 0;
+(gdb) next
+21        for (i = 0; i < n; i++)
+(gdb) next
+22          sum = sum + a[i];
+(gdb) next
+21        for (i = 0; i < n; i++)
+(gdb) next
+22          sum = sum + a[i];
+(gdb) next
+21        for (i = 0; i < n; i++)
+(gdb) next
+23        return sum;
+(gdb) next
+24      }
+(gdb) next
+main () at main.c:39
+39        out_put (n, a, sum);
+(gdb) step
+out_put (n=2, a=0x7fffffffeb80, sum=-4912) at main.c:26
+26      {
+(gdb) next
+28        for (i = 0; i < n - 1; i++)
+(gdb) next
+29          printf ("%d+", a[i]);
+(gdb) next
+28        for (i = 0; i < n - 1; i++)
+(gdb) next
+30        printf ("%dis%d", a[n - 1], sum);
+(gdb) next
+31      }
+(gdb) next
+main () at main.c:40
+40        return 0;
+(gdb) next
+41      }
