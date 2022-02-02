@@ -1,15 +1,13 @@
 #include <stdio.h> 
 #include<math.h>
-int
-input_n() 
+int input_n() 
 {
 int n;
 printf ("Enter a number:\n");
 scanf ("%d", &n);
 return n;
 }
-int
-sum_n (int n) 
+int sum_n (int n) 
 {
 int sum = 0, i;
 for (i = 0; i <= n; i++)
