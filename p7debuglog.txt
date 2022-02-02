@@ -1,0 +1,102 @@
+Reading symbols from a.out...
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:47
+47        n = get_n();
+(gdb) step
+get_n () at main.c:6
+6       int get_n(){
+(gdb) next
+8         printf("Enter the number of complex numbers: ");
+(gdb) next
+9         scanf("%d",&n);
+(gdb) next
+Enter the number of complex numbers: 2
+10        return n;
+(gdb) next
+11      }
+(gdb) next
+main () at main.c:48
+48        Complex c[n],result;
+(gdb) step
+49        input_n_complex(n,c);
+(gdb) step
+input_n_complex (n=1024, c=0x4000000000) at main.c:18
+18      void input_n_complex(int n, Complex c[n]){
+(gdb) next
+19        for (int i = 1; i<=n; ++i){
+(gdb) next
+20          c[i] = input_complex();
+(gdb) next
+Enter a complex number : 2
+2
+19        for (int i = 1; i<=n; ++i){
+(gdb) next
+20          c[i] = input_complex();
+(gdb) next
+Enter a complex number : 2
+2
+19        for (int i = 1; i<=n; ++i){
+(gdb) next
+22      }
+(gdb) next
+main () at main.c:50
+50        result = add_n_complex(n,c);
+(gdb) step
+add_n_complex (n=3, c=0x0) at main.c:23
+23      Complex add_n_complex(int n, Complex c[n]){
+(gdb) next
+25        for (int i=1; i<=n; ++i){
+(gdb) next
+26          out.real = out.real + c[i].real;
+(gdb) next
+27          out.imaginary = out.imaginary + c[i].imaginary;
+(gdb) next
+25        for (int i=1; i<=n; ++i){
+(gdb) next
+26          out.real = out.real + c[i].real;
+(gdb) next
+27          out.imaginary = out.imaginary + c[i].imaginary;
+(gdb) next
+25        for (int i=1; i<=n; ++i){
+(gdb) next
+29        return out;
+(gdb) next
+30      }
+(gdb) next
+main () at main.c:51
+51        output(n,c,result);
+(gdb) step
+output (n=2, c=0x7fffffffeb60, result=...) at main.c:31
+31      void output(int n, Complex c[n], Complex result){
+(gdb) next
+32        for (int i = 0; i <= n; ++i){
+(gdb) next
+33          if (i==0){
+(gdb) next
+34            continue;
+(gdb) next
+32        for (int i = 0; i <= n; ++i){
+(gdb) next
+33          if (i==0){
+(gdb) next
+36          if (i<n && i != 0){
+(gdb) next
+37            printf("(%f + i%f) +",c[i].real,c[i].imaginary);
+(gdb) next
+32        for (int i = 0; i <= n; ++i){
+(gdb) next
+33          if (i==0){
+(gdb) next
+36          if (i<n && i != 0){
+(gdb) next
+40            printf("(%f + i%f) is (%f + i%f)",c[i].real,c[i].imaginary,result.real,result.imaginary);
+(gdb) next
+32        for (int i = 0; i <= n; ++i){
+(gdb) next
+43      }
+(gdb) next
+main () at main.c:52
+52        return 0;
+(gdb) 
