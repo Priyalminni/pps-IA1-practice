@@ -1,0 +1,90 @@
+Reading symbols from a.out...
+(gdb) info break
+
+Num     Type           Disp Enb Address            What
+
+1       breakpoint     keep y   0x0000000000001349 in main at main.c:40
+(gdb) run
+Starting program: /home/a.out 
+
+Breakpoint 1, main () at main.c:40
+40        input_two_string(a, b);
+(gdb) step
+input_two_string (
+    a=0x9c0000009c0 <error: Cannot access memory at address 0x9c0000009c0>, 
+    b=0x9c0000009c0 <error: Cannot access memory at address 0x9c0000009c0>)
+    at main.c:4
+4       {
+(gdb) next
+5         printf("Enter the strings\n");
+(gdb) next
+Enter the strings
+6         scanf("%s%s",  a,  b);
+(gdb) next
+hell
+hello
+7       }
+(gdb) next
+main () at main.c:41
+41        int result=strcmp(a, b);
+(gdb) step
+strcmp (
+    a=0x5555555551e5 <input_two_string+60> "\220\311\303\363\017\036\372UH\211\345H\211}\350H\211u\340\307", <incomplete sequence \374>, b=0x0) at main.c:10
+10      {
+(gdb) next
+11        for (int i=0; a[i]!='\0' && b[i]!='\0'; i++)
+(gdb) next
+13          if(a[i]>b[i])
+(gdb) next
+17          if(a[i]<b[i])
+(gdb) next
+21          if(a[i]==b[i])
+(gdb) next
+11        for (int i=0; a[i]!='\0' && b[i]!='\0'; i++)
+(gdb) next
+13          if(a[i]>b[i])
+(gdb) next
+17          if(a[i]<b[i])
+(gdb) next
+21          if(a[i]==b[i])
+(gdb) next
+11        for (int i=0; a[i]!='\0' && b[i]!='\0'; i++)
+(gdb) next
+13          if(a[i]>b[i])
+(gdb) next
+17          if(a[i]<b[i])
+(gdb) next
+21          if(a[i]==b[i])
+(gdb) next
+11        for (int i=0; a[i]!='\0' && b[i]!='\0'; i++)
+(gdb) next
+13          if(a[i]>b[i])
+(gdb) next
+17          if(a[i]<b[i])
+(gdb) next
+21          if(a[i]==b[i])
+(gdb) next
+11        for (int i=0; a[i]!='\0' && b[i]!='\0'; i++)
+(gdb) next
+26      }
+(gdb) next
+main () at main.c:42
+42        output(a, b, result);
+(gdb) step
+output (a=0x4ffffeaf0 <error: Cannot access memory at address 0x4ffffeaf0>, 
+    b=0x7fffffffeb60 "hello", result=32767) at main.c:28
+28      {
+(gdb) next
+29        if(result==1)
+(gdb) next
+31        if(result==-1)
+(gdb) next
+33        if(result==0)
+(gdb) next
+34          printf("%s is equal to %s", a, b);
+(gdb) next
+35      }
+(gdb) next
+main () at main.c:43
+43        return 0;
+(gdb) Quit
