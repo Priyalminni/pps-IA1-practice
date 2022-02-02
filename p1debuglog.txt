@@ -1,52 +1,129 @@
-#include <stdio.h>
-typedef struct _complex Complex;
-struct _complex{
-  float real,imaginary;
-};
-int get_n(){
-  int n;
-  printf("Enter the number of complex numbers: ");
-  scanf("%d",&n);
-  return n;
-}
-Complex input_complex(){
-  Complex h;
-  printf("Enter a complex number : ");
-  scanf("%f %f",&h.real,&h.imaginary);
-  return h;
-}
-void input_n_complex(int n, Complex c[n]){
-  for (int i = 1; i<=n; ++i){
-    c[i] = input_complex();
-  }
-}
-Complex add_n_complex(int n, Complex c[n]){
-  Complex out;
-  for (int i=1; i<=n; ++i){
-    out.real = out.real + c[i].real;
-    out.imaginary = out.imaginary + c[i].imaginary;
-  }
-  return out;
-}
-void output(int n, Complex c[n], Complex result){
-  for (int i = 0; i <= n; ++i){
-    if (i==0){
-      continue;
-    }
-    if (i<n && i != 0){
-      printf("(%f + i%f) +",c[i].real,c[i].imaginary);
-    }
-    else{
-      printf("(%f + i%f) is (%f + i%f)",c[i].real,c[i].imaginary,result.real,result.imaginary);
-    }
-  }
-}
-int main(){
-  int n;
-  n = get_n();
-  Complex c[n],result;
-  input_n_complex(n,c);
-  result = add_n_complex(n,c);
-  output(n,c,result);
-  return 0;
-}
+  
+ gcc -g p3original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x868: file p3original.c, line 37.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p3original.c:37
+ 
+ gcc -g p4original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8fb: file p4original.c, line 31.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p4original.c:31
+31  {
+(gdb) s
+33    n = input_array_size ();
+(gdb) s
+input_array_size () at p4original.c:3
+3   {
+(gdb) n
+5     printf ("Enter array size\n");
+(gdb) n
+Enter array size
+6     scanf ("%d", &n);
+(gdb) n
+6
+7     return n;
+(gdb) n
+8   }
+(gdb) n
+main () at p4original.c:34
+34    int a[n];
+(gdb) s
+35    input_array (n, a);
+ 
+ gcc -g p1original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7fc: file p1original.c, line 17.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1original.c:17
+17  {
+(gdb) n
+19    input(&x,&y);
+(gdb) s
+input (pa=0x7ffee5fecb8c, pb=0x7ffee5fecb90) at p1original.c:5
+5     printf("entre a number\n");
+(gdb) n
+entre a number
+6     scanf("%d%d",pa,pb);
+(gdb) n
+67
+78
+7   }
+(gdb) n
+main () at p1original.c:20
+20    add(x,y,&z);
+(gdb) s
+add (a=67, b=78, sum=0x7ffee5fecb94) at p1original.c:10
+10    *sum=a+b;
+(gdb) n
+11  }
+(gdb) n
+main () at p1original.c:21
+21    output(x,y,z);
+(gdb) s
+output (a=67, b=78, sum=145) at p1original.c:14
+14    printf("sum of %d + %d is %d\n",a,b,sum);
+(gdb) n
+sum of 67 + 78 is 145
+15  }
+(gdb) n
+main () at p1original.c:22
+22    return 0;
